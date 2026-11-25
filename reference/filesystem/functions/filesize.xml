@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<!-- EN-Revision: 871a231f4a1caa5fb258ae53b1bb7d1fb2a0f949 Maintainer: jpauli Status: ready -->
+<!-- EN-Revision: f78595414f882dacb7d56c59b6243d9f1399fc3f Maintainer: jpauli Status: ready -->
 <!-- Reviewed: yes Maintainer: itanea -->
 <refentry xml:id="function.filesize" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
@@ -42,6 +42,13 @@
    <parameter>filename</parameter> en octets, ou &false; (et génère une
    erreur de niveau <constant>E_WARNING</constant>) en cas d'erreur.
   </para>
+  <simpara>
+   Si <parameter>filename</parameter> est un lien symbolique, la taille du fichier
+   cible est retournée. Si la cible n'existe pas, &false; est retourné
+   et un <constant>E_WARNING</constant> est émis.
+   Pour obtenir la taille du lien symbolique lui-même, il faut utiliser l'élément 
+   <literal>size</literal> du tableau retourné par <function>lstat</function>.
+  </simpara>
   &fs.file.32bit;
  </refsect1>
 
